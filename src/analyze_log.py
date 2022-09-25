@@ -78,6 +78,18 @@ def foods_that_joao_never_asked(file_lines):
 
     return str(foods_never_asked)
 
-    
+
+def days_that_joao_never_went(file_lines):
+    days = get_days_that_the_restaurant_opens(file_lines)
+    days_joao_never_went = set()
+    customers = implementing_customers_days_and_food(file_lines)
+
+    for day in days:
+        if day not in customers['joao']['days']:
+            days_joao_never_went.add(day)
+
+    return str(days_joao_never_went)
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
