@@ -7,7 +7,7 @@ def get_days_that_the_restaurant_opens(file_lines):
 
     for line in file_lines:
         days.add(line[2])
-    
+
     return days
 
 
@@ -26,7 +26,7 @@ def get_restaurant_customers(file_lines):
 
     for line in file_lines:
         customers.add(line[0])
-    
+
     for customer in customers:
         customers_dicts[customer] = {'days': [], 'foods': []}
 
@@ -43,7 +43,7 @@ def implementing_customers_days_and_food(file_lines):
                 customers_dicts[customer]['days'].append(line[2])
                 customers_dicts[customer]['foods'].append(line[1])
 
-    return customers_dicts    
+    return customers_dicts
 
 
 def maria_requested_food(file_lines):
@@ -108,7 +108,7 @@ def analyze_log(path_to_file):
                 f'{joao_food_data}\n'
                 f'{joao_days_data}\n'
             ]
-            
+
             for data in datas:
                 file.writelines(data)
 
