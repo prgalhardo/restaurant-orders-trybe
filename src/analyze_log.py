@@ -65,5 +65,19 @@ def times_arnaldo_ordered_hamburguers(file_lines):
     customers = implementing_customers_days_and_food(file_lines)
 
     return str(customers['arnaldo']['foods'].count('hamburguer'))
+
+
+def foods_that_joao_never_asked(file_lines):
+    foods_never_asked = set()
+    menu = get_restaurant_menu(file_lines)
+    customers = implementing_customers_days_and_food(file_lines)
+
+    for food in menu:
+        if food not in customers['joao']['foods']:
+            foods_never_asked.add(food)
+
+    return str(foods_never_asked)
+
+    
 def analyze_log(path_to_file):
     raise NotImplementedError
