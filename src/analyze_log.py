@@ -33,7 +33,7 @@ def get_restaurant_customers(file_lines):
     return customers_dicts
 
 
-def implementing_days_and_food(file_lines):
+def implementing_customers_days_and_food(file_lines):
     customers_dicts = get_restaurant_customers(file_lines)
     customers = list(customers_dicts.keys())
 
@@ -44,6 +44,21 @@ def implementing_days_and_food(file_lines):
                 customers_dicts[customer]['foods'].append(line[1])
 
     return customers_dicts    
+
+
+def maria_requested_food(file_lines):
+    count_food = 0
+    most_consumed_food = ''
+    menu = get_restaurant_menu(file_lines)
+    customers = implementing_customers_days_and_food(file_lines)
+
+    for food in menu:
+        final_count_food = customers['maria']['foods'].count(food)
+        if final_count_food > count_food:
+            count_food = final_count_food
+            most_consumed_food = food
+
+    return most_consumed_food
 
 
 def analyze_log(path_to_file):
