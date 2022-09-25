@@ -92,4 +92,28 @@ def days_that_joao_never_went(file_lines):
 
 
 def analyze_log(path_to_file):
-    raise NotImplementedError
+    try:
+        with open(path_to_file, mode='r') as file:
+            file_lines = list(csv.reader(file))
+
+            maria_data = maria_requested_food(file_lines)
+            arnaldo_data = times_arnaldo_ordered_hamburguers(file_lines)
+            joao_food_data = foods_that_joao_never_asked(file_lines)
+            joao_days_data = days_that_joao_never_went(file_lines)
+
+        with open('data/mkt_campaign.txt', mode='w') as file:
+            datas = [
+                f'{maria_data}\n'
+                f'{arnaldo_data}\n'
+                f'{joao_food_data}\n'
+                f'{joao_days_data}\n'
+            ]
+            
+            for data in datas:
+                file.writelines(data)
+
+    except FileNotFoundError:
+        if ('.csv' not in path_to_file):
+            raise FileNotFoundError(f'Extensão inválida: {path_to_file}')
+        else:
+            raise FileNotFoundError(f'Arquivo inexistente: {path_to_file}')
