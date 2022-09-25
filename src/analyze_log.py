@@ -61,5 +61,9 @@ def maria_requested_food(file_lines):
     return most_consumed_food
 
 
+def times_arnaldo_ordered_hamburguers(file_lines):
+    customers = implementing_customers_days_and_food(file_lines)
+
+    return str(customers['arnaldo']['foods'].count('hamburguer'))
 def analyze_log(path_to_file):
     raise NotImplementedError
