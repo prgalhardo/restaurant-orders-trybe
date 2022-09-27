@@ -47,7 +47,14 @@ class TrackOrders:
         return never_visited
 
     def get_busiest_day(self):
-        pass
+        all_days = list()
+
+        for line in self.orders:
+            all_days.append(line[2])
+
+        busiest_day = max(all_days, key=all_days.count)
+
+        return busiest_day
 
     def get_least_busy_day(self):
         pass
