@@ -3,7 +3,6 @@ class TrackOrders:
     def __init__(self):
         self.orders = list()
 
-
     def __len__(self):
         return len(self.orders)
 
