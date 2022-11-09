@@ -7,6 +7,7 @@ class InventoryControl:
     }
     MINIMUM_INVENTORY = {
         'pao': 50,
+        
         'carne': 50,
         'queijo': 100,
         'molho': 50,
